@@ -12,7 +12,12 @@ def main() -> None:
     parser.add_argument("intent", type=str, nargs="?", default="", help="What you want done")
     parser.add_argument("--reconfigure", action="store_true", help="Rerun install probe")
     parser.add_argument("--interactive", "-i", action="store_true", help="Interactive REPL mode")
+    parser.add_argument("--stderr", type=str, metavar="ERROR", help="Passive mode: error from shell hook")
     args = parser.parse_args()
+
+    if args.stderr:
+        spawn("", stderr_context=args.stderr)
+        return
 
     if args.reconfigure:
         from env.probe import run_probe

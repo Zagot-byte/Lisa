@@ -1,0 +1,6 @@
+# Lisa — Python dependencies
+# Runtime: stdlib only (sqlite3, subprocess, urllib, json, shutil, re, signal, os, argparse)
+# No third-party runtime dependencies.
+
+# Build / install tooling
+setuptools>=68.0
